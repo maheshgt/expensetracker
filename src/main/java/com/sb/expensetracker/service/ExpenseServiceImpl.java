@@ -1,7 +1,65 @@
 package com.sb.expensetracker.service;
 
+import com.sb.expensetracker.entity.Expense;
+import com.sb.expensetracker.repository.ExpenseRepository;
+import com.sb.expensetracker.util.ExpenseDto;
+import lombok.Builder;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
+
+@Slf4j
 @Service
+@Builder
 public class ExpenseServiceImpl implements ExpenseService {
+
+    @Autowired
+    private ExpenseRepository expenseRepository;
+
+    @Override
+    public List<Expense> getAllExpenses() {
+        log.info("getExpenses method in ExpenseServiceImpl class :");
+        return expenseRepository.findAll();
+    }
+
+    @Override
+    public Expense getExpenseById(Long id) {
+        log.info("getExpenseById method in ExpenseServiceImpl class with Expense Id : " + id);
+        Optional<Expense> expenseId = expenseRepository.findById(id);
+        if (expenseId.isPresent()) {
+            return expenseId.get();
+        }
+        throw new RuntimeException("Expense is not found for the id : " + id);
+    }
+
+    @Override
+    public String deleteExpenseById(Long id) {
+        log.info("deleteExpenseById method in ExpenseServiceImpl class with Expense Id : " + id);
+        Optional<Expense> expense = expenseRepository.findById(id);
+        if (expense.isPresent()) {
+            expenseRepository.deleteById(id);
+            return "Successfully deleted the expense!";
+        }
+        throw new RuntimeException("Expense is not found for the id : " + id);
+    }
+
+    @Override
+    public Expense createExpense(ExpenseDto expenseDto) {
+        log.info(" createExpense method in ExpenseServiceImpl class: ");
+        Expense expense = Expense.builder()
+                .name(expenseDto.getName())
+                .category(expenseDto.getCategory())
+                .description(expenseDto.getDescription())
+                .date(Date.valueOf(LocalDate.now()))
+                .amount(expenseDto.getAmount())
+                .build();
+        return expenseRepository.save(expense);
+    }
+
+
 }
