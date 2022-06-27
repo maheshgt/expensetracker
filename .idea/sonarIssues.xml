@@ -13,6 +13,26 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/sb/expensetracker/entity/Expense.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/sb/expensetracker/repository/ExpenseRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/sb/expensetracker/service/ExpenseService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/sb/expensetracker/service/ExpenseServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
       </map>
     </option>
   </component>
