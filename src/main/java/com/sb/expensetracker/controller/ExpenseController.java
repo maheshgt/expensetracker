@@ -60,6 +60,8 @@ public class ExpenseController {
         log.info("updateExpenseAmount method in Expensecontroller class with id : "+id);
         return expenseService.updateExpenseAmount(id, amount);
     }
+
+    //check
     @GetMapping("/test")
     public String check() {
         return "its working!";
