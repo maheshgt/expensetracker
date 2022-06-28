@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
@@ -59,6 +60,33 @@ public class ExpenseServiceImpl implements ExpenseService {
                 .amount(expenseDto.getAmount())
                 .build();
         return expenseRepository.save(expense);
+    }
+
+    @Override
+    public Expense updateExpense(ExpenseDto expenseDto, Long id) {
+        log.info("");
+        Optional<Expense> expense = expenseRepository.findById(id);
+        if (expense.isPresent()) {
+            Expense expense1 = Expense.builder()
+                    .name(expenseDto.getName())
+                    .amount(expenseDto.getAmount())
+                    .category(expenseDto.getCategory())
+                    .description(expenseDto.getDescription())
+                    .build();
+            return expenseRepository.save(expense1);
+        }
+        throw new RuntimeException("Invalid expense id : " + id);
+    }
+
+    @Override
+    public Expense updateExpenseAmount(Long id, BigDecimal amount) {
+        log.info("");
+        Optional<Expense> expense = expenseRepository.findById(id);
+        if (expense.isPresent()) {
+            expense.get().setAmount(amount);
+            return expenseRepository.save(expense.get());
+        }
+        throw new RuntimeException("Invalid expense id : " + id);
     }
 
 

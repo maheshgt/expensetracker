@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -44,6 +45,20 @@ public class ExpenseController {
     public Expense createExpense(@RequestBody ExpenseDto expenseDto){
         log.info(" createExpense method in ExpenseControlle class : ");
         return expenseService.createExpense(expenseDto);
+    }
+
+    //update expense
+    @PutMapping("expenses/{id}")
+    public Expense updateExpense(@RequestBody ExpenseDto expenseDto, @PathVariable Long id){
+        log.info(" updateExpense method in ExpenseController class with id : "+id);
+        return expenseService.updateExpense(expenseDto,id);
+    }
+
+    //update expense
+    @PatchMapping("/expenses/{id}/{amount}")
+    public Expense updateExpenseAmount(@PathVariable Long id, @PathVariable BigDecimal amount){
+        log.info(" ");
+        return expenseService.updateExpenseAmount(id, amount);
     }
     @GetMapping("/test")
     public String check() {
