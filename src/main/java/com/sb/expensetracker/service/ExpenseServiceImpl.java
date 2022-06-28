@@ -64,7 +64,7 @@ public class ExpenseServiceImpl implements ExpenseService {
 
     @Override
     public Expense updateExpense(ExpenseDto expenseDto, Long id) {
-        log.info("");
+        log.info("updateExpense method in ExpenseServiceImpl class with id : "+id);
         Optional<Expense> expense = expenseRepository.findById(id);
         if (expense.isPresent()) {
             Expense expense1 = Expense.builder()
@@ -80,7 +80,7 @@ public class ExpenseServiceImpl implements ExpenseService {
 
     @Override
     public Expense updateExpenseAmount(Long id, BigDecimal amount) {
-        log.info("");
+        log.info("updateExpenseAmount method in ExpenseServiceImpl class with id : "+id);
         Optional<Expense> expense = expenseRepository.findById(id);
         if (expense.isPresent()) {
             expense.get().setAmount(amount);

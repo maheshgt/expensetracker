@@ -57,7 +57,7 @@ public class ExpenseController {
     //update expense
     @PatchMapping("/expenses/{id}/{amount}")
     public Expense updateExpenseAmount(@PathVariable Long id, @PathVariable BigDecimal amount){
-        log.info(" ");
+        log.info("updateExpenseAmount method in Expensecontroller class with id : "+id);
         return expenseService.updateExpenseAmount(id, amount);
     }
     @GetMapping("/test")
