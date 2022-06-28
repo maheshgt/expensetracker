@@ -72,6 +72,7 @@ public class ExpenseServiceImpl implements ExpenseService {
                     .amount(expenseDto.getAmount())
                     .category(expenseDto.getCategory())
                     .description(expenseDto.getDescription())
+                    .id(expense.get().getId())
                     .build();
             return expenseRepository.save(expense1);
         }
@@ -84,6 +85,7 @@ public class ExpenseServiceImpl implements ExpenseService {
         Optional<Expense> expense = expenseRepository.findById(id);
         if (expense.isPresent()) {
             expense.get().setAmount(amount);
+            expense.get().setDate(Date.valueOf(LocalDate.now()));
             return expenseRepository.save(expense.get());
         }
         throw new RuntimeException("Invalid expense id : " + id);
