@@ -2,6 +2,8 @@ package com.sb.expensetracker.service;
 
 import com.sb.expensetracker.entity.Expense;
 import com.sb.expensetracker.util.ExpenseDto;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -11,7 +13,7 @@ import java.util.Optional;
 @Service
 public interface ExpenseService {
 
-    List<Expense> getAllExpenses();
+    Page<Expense> getAllExpenses(Pageable pageble);
 
     Expense getExpenseById(Long id);
 
