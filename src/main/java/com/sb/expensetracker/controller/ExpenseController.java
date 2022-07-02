@@ -68,6 +68,20 @@ public class ExpenseController {
         return expenseService.updateExpenseAmount(id, amount);
     }
 
+    //
+    @GetMapping("/expenses/category")
+    public List<Expense> getAllExpensesByCategory(@RequestParam String category, Pageable pageable) {
+        log.info("");
+        return expenseService.getAllExpensesByCategory(category, pageable).toList();
+    }
+
+    //
+    @GetMapping("/expenses/name")
+    public List<Expense> getAllExpensesByName(@RequestParam String name, Pageable pageable) {
+        log.info("");
+        return expenseService.getAllExpensesByName(name, pageable).toList();
+    }
+
     //check
     @GetMapping("/test")
     public String check() {

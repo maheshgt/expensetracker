@@ -93,5 +93,17 @@ public class ExpenseServiceImpl implements ExpenseService {
         throw new RuntimeException("Invalid expense id : " + id);
     }
 
+    @Override
+    public Page<Expense> getAllExpensesByCategory(String category, Pageable pageable) {
+        log.info(" ");
+        return expenseRepository.findByCategory(category, pageable);
+    }
+
+    @Override
+    public Page<Expense> getAllExpensesByName(String name, Pageable pageable) {
+        log.info(" ");
+        return expenseRepository.findByNameLike(name, pageable);
+    }
+
 
 }

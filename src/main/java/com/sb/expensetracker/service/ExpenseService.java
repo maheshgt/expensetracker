@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public interface ExpenseService {
@@ -24,4 +25,8 @@ public interface ExpenseService {
     Expense updateExpense(ExpenseDto expenseDto, Long id);
 
     Expense updateExpenseAmount(Long id, BigDecimal amount);
+
+    Page<Expense> getAllExpensesByCategory(String category, Pageable pageable);
+
+    Page<Expense> getAllExpensesByName(String name, Pageable pageable);
 }

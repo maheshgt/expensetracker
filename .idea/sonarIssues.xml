@@ -8,12 +8,27 @@
             <set />
           </value>
         </entry>
+        <entry key="/fragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/sb/expensetracker/controller/ExpenseController.java">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/sb/expensetracker/controller/UserController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/sb/expensetracker/entity/Expense.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/sb/expensetracker/entity/User.java">
           <value>
             <set />
           </value>
@@ -38,6 +53,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/sb/expensetracker/repository/UserRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/sb/expensetracker/service/ExpenseService.java">
           <value>
             <set />
@@ -48,12 +68,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/sb/expensetracker/service/UserService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/sb/expensetracker/service/UserServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/sb/expensetracker/util/ExpenseDto.java">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/sb/expensetracker/util/UserDto.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/banner">
           <value>
             <set />
           </value>
