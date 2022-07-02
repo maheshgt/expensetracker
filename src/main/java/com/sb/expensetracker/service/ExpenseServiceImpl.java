@@ -6,6 +6,8 @@ import com.sb.expensetracker.util.ExpenseDto;
 import lombok.Builder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -23,9 +25,9 @@ public class ExpenseServiceImpl implements ExpenseService {
     private ExpenseRepository expenseRepository;
 
     @Override
-    public List<Expense> getAllExpenses() {
+    public Page<Expense> getAllExpenses(Pageable pageble) {
         log.info("getExpenses method in ExpenseServiceImpl class :");
-        return expenseRepository.findAll();
+        return expenseRepository.findAll(pageble);
     }
 
     @Override
@@ -64,7 +66,7 @@ public class ExpenseServiceImpl implements ExpenseService {
 
     @Override
     public Expense updateExpense(ExpenseDto expenseDto, Long id) {
-        log.info("updateExpense method in ExpenseServiceImpl class with id : "+id);
+        log.info("updateExpense method in ExpenseServiceImpl class with id : " + id);
         Optional<Expense> expense = expenseRepository.findById(id);
         if (expense.isPresent()) {
             Expense expense1 = Expense.builder()
@@ -81,7 +83,7 @@ public class ExpenseServiceImpl implements ExpenseService {
 
     @Override
     public Expense updateExpenseAmount(Long id, BigDecimal amount) {
-        log.info("updateExpenseAmount method in ExpenseServiceImpl class with id : "+id);
+        log.info("updateExpenseAmount method in ExpenseServiceImpl class with id : " + id);
         Optional<Expense> expense = expenseRepository.findById(id);
         if (expense.isPresent()) {
             expense.get().setAmount(amount);
